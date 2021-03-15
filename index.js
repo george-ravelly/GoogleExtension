@@ -1,8 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelector("#btn").addEventListener("click", () => {
+        let text = document.querySelector("#nome")
+        text.hidden = false
+        text.value = ""
+        let responder = document.querySelector("#enviar")
+        responder.hidden = false
         let nome = document.querySelector("#btn")
-        nome.innerHTML = "repetir";
+        nome.innerHTML = "Girar";
         let resultado = document.getElementById("resultado");
         resultado.innerHTML = " ";
         quiz()
@@ -14,8 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
         let resultado = document.getElementById("resultado");
         if(nome.value === pokemonName){
             resultado.innerHTML ="Resposta certa!";
+            resultado.style = "color: #86FF33"
         }else{
-            resultado.innerHTML = "Resposta errada! o nome correto é: "+pokemonName;
+            resultado.innerHTML = "Resposta errada!\n O nome correto é: "+pokemonName;
+            resultado.style = "color:#FF5733"
         }
     })
 

@@ -4,23 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: 0;
+        }
+        body{
+            padding: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+        }
+        .btn-campo{
+            display: flex;
+            justify-content: space-between;
+        }
+        .bloco {
+            text-align: center;
+            padding-right: 5px;
+        }
+    </style>
     
     <title>PokemonQuiz</title>
 </head>
 <body>
 
-    <div style="width: auto;" id="campo">
-        <strong>Quem é esse Pokemon?</strong>
-        <div>
-            <img src="" id="img" width="150px" alt="">
-            <strong id="resultado"></strong>
+    <div id="campo">
+        <div style="width: 250px">
+            <h3 style="color:goldenrod;">Quem é esse Pokemon?</h3>
         </div>
         
-        <input type="text" id="nome"/>
-        <br><br>
-        <div>
+        <div class="bloco">
+            <img src="" id="img" width="150px" alt="">
+            <br>
+            <strong id="resultado"></strong>
+            <br>
+            <input style="width: 100%;" type="text" id="nome" hidden/>
+            
+        </div>
+        <br>
+        <div class="btn-campo">
             <button id="btn">Quiz</button>
-            <button id="enviar">enviar</button>
+            <button id="enviar" hidden>Enviar</button>
         </div>
         
     </div>
