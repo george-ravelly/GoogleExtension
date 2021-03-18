@@ -13,24 +13,31 @@ document.addEventListener("DOMContentLoaded", () => {
         quiz()
     })
 
-
+    let count = 0
     document.querySelector("#enviar").addEventListener("click", () => {
         let nome = document.getElementById("nome");
         let resultado = document.getElementById("resultado");
+        let acertos = document.getElementById("acertos");
         if(nome.value === pokemonName){
+            document.getElementById('img').style = "-webkit-filter: grayscale(0%); filter: grayscale(0%); filter: gray;"
             resultado.innerHTML ="Resposta certa!";
-            resultado.style = "color: #86FF33"
+            resultado.style = "color: #86FF33";
+            document.getElementById("enviar").hidden = true
+            acertos.innerHTML = ++count
         }else{
+            document.getElementById("enviar").hidden = true
+            nome.value = " "
             resultado.innerHTML = "Resposta errada!\n O nome correto é: "+pokemonName;
-            resultado.style = "color:#FF5733"
+            resultado.style = "color:#FF5733";
         }
     })
 
     let pokemon = {}
     let pokemonName = ""
+    let imagem = ""
     function getPokemon(){
-        let random = (Math.random() * 50).toFixed(0)
-        console.log(random)
+        let random = (Math.random() * 810).toFixed(0)
+        //console.log(random)
         fetch("https://pokeapi.co/api/v2/pokemon/"+random)
             .then(response => response.json())
             .then(data => {
@@ -45,8 +52,10 @@ document.addEventListener("DOMContentLoaded", () => {
         getPokemon()
 
         let img = document.getElementById('img');
-        img.src = pokemon.sprites.front_default;
-        pokemonName = pokemon.name
+        imagem = pokemon.sprites.front_default;
+        img.src = imagem
+        img.style = "-webkit-filter: grayscale(100%); filter: grayscale(100%); filter: gray;"
+        pokemonName = pokemon.name        
     }
 })
 
