@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let acertos = document.getElementById("acertos");
         if(nome.value !== ""){
             if(nome.value === pokemonName){
-                document.getElementById('img').style = "-webkit-filter: grayscale(0%); filter: grayscale(0%); filter: gray;"
+                document.getElementById('img').style = "-webkit-filter: brightness(100%); filter: brightness(100%);"
                 resultado.innerHTML ="Resposta certa!";
                 resultado.style = "color: #86FF33";
                 document.getElementById("enviar").hidden = true
@@ -60,10 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
         getPokemon()
 
         let img = document.getElementById('img');
-        imagem = pokemon.sprites.front_default;
-        img.src = imagem
-        img.style = "-webkit-filter: grayscale(100%); filter: grayscale(100%); filter: gray;"
-        pokemonName = pokemon.name        
+        img.src = pokemon.sprites.front_default;
+        img.style = "-webkit-filter: brightness(0%); filter: brightness(0%);";
+        pokemonName = pokemon.name;
     }
 })
 
